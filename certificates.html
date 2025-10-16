@@ -95,12 +95,11 @@
   animation: typing 4s steps(12, end) infinite, blink 0.8s infinite, glowText 3s ease-in-out infinite alternate;
 }
 
-/* makes it type "Certificates" exactly (12 characters) */
 @keyframes typing {
   0% { width: 0; }
-  40% { width: 12ch; } /* stops exactly after "Certificates" */
-  60% { width: 12ch; } /* short pause */
-  100% { width: 0; }   /* erase */
+  40% { width: 12ch; }
+  60% { width: 12ch; }
+  100% { width: 0; } 
 }
 
 @keyframes blink {
@@ -130,7 +129,6 @@
   animation: pulse 6s infinite ease-in-out; /* 💫 soft glowing loop */
 }
 
-/* --- Back to Intro Button --- */
 .back-intro-btn {
   position: fixed;
   top: 1rem;
@@ -163,7 +161,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a href="index.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
       <a class="logo" href="home.html">Carla Mae Cardano</a>
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
         <span class="hamburger"></span>
@@ -259,3 +257,4 @@
   </script>
 </body>
 </html>
+
