@@ -1,4 +1,6 @@
+// ===============================
 // Mobile navigation toggle
+// ===============================
 const toggle = document.getElementById('mobile-nav-toggle');
 const nav = document.getElementById('site-nav');
 
@@ -19,18 +21,23 @@ document.querySelectorAll('.nav a').forEach(a => {
   });
 });
 
+// ===============================
 // Update copyright year
+// ===============================
 const y = new Date().getFullYear();
 ['year', 'year-2', 'year-3', 'year-4', 'year-5', 'year-6'].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.textContent = y;
 });
 
-// Persistent background music with neon control button
+// ===============================
+// Persistent background music
+// ===============================
 (function () {
   if (window.bgMusicInitialized) return;
   window.bgMusicInitialized = true;
 
+  // Get or create audio element
   let audio = document.getElementById('bg-music');
   if (!audio) {
     audio = document.createElement('audio');
@@ -41,18 +48,23 @@ const y = new Date().getFullYear();
     document.body.appendChild(audio);
   }
 
-  const btn = document.getElementById('music-toggle'); // ✅ get the button
+  // Get the toggle button
+  const btn = document.getElementById('music-toggle');
+
+  // Restore mute state from localStorage
   const savedMuted = localStorage.getItem('musicMuted') === 'true';
   audio.muted = savedMuted;
   if (btn) btn.textContent = savedMuted ? '🔇' : '🔊';
 
-  // Start music on user interaction (browsers block autoplay with sound)
+  // Start music only after user interaction (browser autoplay policy)
   const startMusic = () => {
-    audio.play().catch(() => {});
+    audio.play().catch(() => {
+      console.log("Music autoplay blocked until user interaction");
+    });
   };
   document.addEventListener('click', startMusic, { once: true });
 
-  // Toggle mute/unmute
+  // Button toggle: mute/unmute
   if (btn) {
     btn.addEventListener('click', async () => {
       if (audio.muted) {
@@ -60,7 +72,7 @@ const y = new Date().getFullYear();
         try {
           await audio.play();
         } catch (err) {
-          console.log('Playback needs interaction:', err);
+          console.log('Playback requires interaction:', err);
         }
       } else {
         audio.muted = true;
@@ -70,5 +82,3 @@ const y = new Date().getFullYear();
     });
   }
 })();
-
-
