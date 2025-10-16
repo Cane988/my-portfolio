@@ -30,55 +30,48 @@ const y = new Date().getFullYear();
   if (el) el.textContent = y;
 });
 
-// ===============================
-// Persistent background music
-// ===============================
+// Persistent background music with neon control button
 (function () {
   if (window.bgMusicInitialized) return;
   window.bgMusicInitialized = true;
 
-  // Get or create audio element
-  let audio = document.getElementById('bg-music');
-  if (!audio) {
-    audio = document.createElement('audio');
-    audio.id = 'bg-music';
-    audio.src = 'assets/audio/background.mp3';
-    audio.loop = true;
-    audio.volume = 0.1;
-    document.body.appendChild(audio);
-  }
-
-  // Get the toggle button
+  const audio = document.getElementById('bg-music');
   const btn = document.getElementById('music-toggle');
 
-  // Restore mute state from localStorage
+  if (!audio || !btn) return;
+
+  audio.volume = 0.1;
+
+  // Restore mute state
   const savedMuted = localStorage.getItem('musicMuted') === 'true';
   audio.muted = savedMuted;
-  if (btn) btn.textContent = savedMuted ? '🔇' : '🔊';
+  btn.textContent = savedMuted ? '🔇' : '🔊';
 
-  // Start music only after user interaction (browser autoplay policy)
+  // Start music on first user click
   const startMusic = () => {
-    audio.play().catch(() => {
-      console.log("Music autoplay blocked until user interaction");
-    });
+    if (!audio.muted) {
+      audio.play().catch(err => {
+        console.log("Autoplay blocked, waiting for user interaction:", err);
+      });
+    }
   };
   document.addEventListener('click', startMusic, { once: true });
 
-  // Button toggle: mute/unmute
-  if (btn) {
-    btn.addEventListener('click', async () => {
-      if (audio.muted) {
-        audio.muted = false;
-        try {
-          await audio.play();
-        } catch (err) {
-          console.log('Playback requires interaction:', err);
-        }
-      } else {
-        audio.muted = true;
+  // Toggle mute/unmute
+  btn.addEventListener('click', async () => {
+    if (audio.muted) {
+      audio.muted = false;
+      try {
+        await audio.play();
+      } catch (err) {
+        console.log("Playback error:", err);
       }
-      btn.textContent = audio.muted ? '🔇' : '🔊';
-      localStorage.setItem('musicMuted', audio.muted);
-    });
-  }
+    } else {
+      audio.muted = true;
+    }
+    btn.textContent = audio.muted ? '🔇' : '🔊';
+    localStorage.setItem('musicMuted', audio.muted);
+  });
 })();
+
+
