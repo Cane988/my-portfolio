@@ -35,7 +35,7 @@ const y = new Date().getFullYear();
   if (!audio) {
     audio = document.createElement('audio');
     audio.id = 'bg-music';
-    audio.src = 'assets/music.mp3';
+    audio.src = 'assets/audio/background.mp3';
     audio.loop = true;
     audio.volume = 0.1;
     document.body.appendChild(audio);
@@ -65,3 +65,4 @@ const y = new Date().getFullYear();
     localStorage.setItem('musicMuted', audio.muted);
   });
 })();
+
