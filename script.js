@@ -50,7 +50,7 @@ const y = new Date().getFullYear();
   document.addEventListener('click', startMusic, { once: true });
   window.addEventListener('load', startMusic);
 
-  btn.addEventListener('click', async () => {
+  const btn.addEventListener('click', async () => {
     if (audio.muted) {
       audio.muted = false;
       try {
@@ -61,7 +61,8 @@ const y = new Date().getFullYear();
     } else {
       audio.muted = true;
     }
-    btn.textContent = audio.muted ? '🔇' : '🔊';
+    const btn.textContent = audio.muted ? '🔇' : '🔊';
     localStorage.setItem('musicMuted', audio.muted);
   });
 })();
+
