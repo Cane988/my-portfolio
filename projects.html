@@ -32,12 +32,11 @@
                glowText 3s ease-in-out infinite alternate;
   }
 
-  /* makes it type "Projects" exactly (8 letters) */
   @keyframes typing {
     0% { width: 0; }
-    40% { width: 8ch; } /* stops exactly after "Projects" */
-    60% { width: 8ch; } /* pause */
-    100% { width: 0; }  /* erase */
+    40% { width: 8ch; } 
+    60% { width: 8ch; } 
+    100% { width: 0; }  
   }
 
   @keyframes blink {
@@ -65,7 +64,7 @@
     transition: all 0.3s ease;
     backdrop-filter: blur(6px);
     position: relative;
-    animation: pulse 6s infinite ease-in-out; /* soft neon pulse */
+    animation: pulse 6s infinite ease-in-out; 
   }
 
   .project:hover {
@@ -146,30 +145,30 @@
     background: rgba(255, 255, 255, 0.2);
   }
 
-  /* --- Back to Intro Button --- */
-.back-intro-btn {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(0, 255, 195, 0.15);
-  color: #00ffc3;
-  font-weight: bold;
-  padding: 8px 14px;
-  border: 2px solid #00ffc3;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
-  z-index: 2000;
-  transition: all 0.3s ease;
-}
 
-.back-intro-btn:hover {
-  background: #00ffc3;
-  color: #020305;
-  box-shadow: 0 0 20px #00ffc3;
-}
+  .back-intro-btn {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 255, 195, 0.15);
+    color: #00ffc3;
+    font-weight: bold;
+    padding: 8px 14px;
+    border: 2px solid #00ffc3;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+    z-index: 2000;
+    transition: all 0.3s ease;
+  }
+
+  .back-intro-btn:hover {
+    background: #00ffc3;
+    color: #020305;
+    box-shadow: 0 0 20px #00ffc3;
+  }
 
 </style>
 
@@ -180,7 +179,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a href="index.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
       <a class="logo" href="home.html">Carla Mae Cardano</a>
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
         <span class="hamburger"></span>
@@ -299,3 +298,4 @@
   </script>
 </body>
 </html>
+
