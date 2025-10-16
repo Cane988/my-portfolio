@@ -146,7 +146,8 @@
     overflow-y: auto;
     scroll-behavior: smooth;
   }
-  
+
+  /* === BACK TO INTRO BUTTON === */
   .back-intro-btn {
     position: fixed;
     top: 1rem;
@@ -179,7 +180,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
       <a class="logo" href="home.html">Carla Mae Cardano</a>
       <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
         <span class="hamburger"></span>
@@ -216,15 +217,30 @@
     <small>© <span id="year"></span> Carla Mae Cardano — All rights reserved.</small>
   </footer>
 
-  <audio id="bg-music" loop>
+  <audio id="bg-music" autoplay loop>
     <source src="assets/audio/background.mp3" type="audio/mpeg">
   </audio>
 
-  <button id="music-toggle" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+  <button id="volume-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+
+      const music = document.getElementById('bg-music');
+      const volumeBtn = document.getElementById('volume-btn');
+      music.volume = 0.1;
+      const isMuted = localStorage.getItem('musicMuted') === 'true';
+      music.muted = isMuted;
+      volumeBtn.textContent = isMuted ? '🔇' : '🔊';
+      volumeBtn.addEventListener('click', () => {
+        music.muted = !music.muted;
+        volumeBtn.textContent = music.muted ? '🔇' : '🔊';
+        localStorage.setItem('musicMuted', music.muted);
+      });
+    });
+  </script>
 </body>
 </html>
-
-
-
