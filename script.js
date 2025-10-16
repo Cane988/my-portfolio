@@ -1,3 +1,31 @@
+// Mobile navigation toggle
+const toggle = document.getElementById('mobile-nav-toggle');
+const nav = document.getElementById('site-nav');
+
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    toggle.classList.toggle('active'); // animate hamburger
+  });
+}
+
+// Close nav on link click (mobile)
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', () => {
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      toggle.classList.remove('active');
+    }
+  });
+});
+
+// Update copyright year
+const y = new Date().getFullYear();
+['year', 'year-2', 'year-3', 'year-4', 'year-5', 'year-6'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.textContent = y;
+});
+
 (function () {
   if (window.bgMusicInitialized) return;
   window.bgMusicInitialized = true;
@@ -49,3 +77,4 @@
     });
   }
 })();
+
