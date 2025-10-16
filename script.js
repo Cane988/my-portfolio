@@ -1,6 +1,4 @@
-// ===============================
 // Mobile navigation toggle
-// ===============================
 const toggle = document.getElementById('mobile-nav-toggle');
 const nav = document.getElementById('site-nav');
 
@@ -21,9 +19,7 @@ document.querySelectorAll('.nav a').forEach(a => {
   });
 });
 
-// ===============================
 // Update copyright year
-// ===============================
 const y = new Date().getFullYear();
 ['year', 'year-2', 'year-3', 'year-4', 'year-5', 'year-6'].forEach(id => {
   const el = document.getElementById(id);
@@ -35,36 +31,32 @@ const y = new Date().getFullYear();
   if (window.bgMusicInitialized) return;
   window.bgMusicInitialized = true;
 
-  const audio = document.getElementById('bg-music');
-  const btn = document.getElementById('music-toggle');
+  let audio = document.getElementById('bg-music');
+  if (!audio) {
+    audio = document.createElement('audio');
+    audio.id = 'bg-music';
+    audio.src = 'assets/music.mp3';
+    audio.loop = true;
+    audio.volume = 0.1;
+    document.body.appendChild(audio);
+  }
 
-  if (!audio || !btn) return;
-
-  audio.volume = 0.1;
-
-  // Restore mute state
   const savedMuted = localStorage.getItem('musicMuted') === 'true';
   audio.muted = savedMuted;
-  btn.textContent = savedMuted ? '🔇' : '🔊';
 
-  // Start music on first user click
   const startMusic = () => {
-    if (!audio.muted) {
-      audio.play().catch(err => {
-        console.log("Autoplay blocked, waiting for user interaction:", err);
-      });
-    }
+    audio.play().catch(() => {});
   };
   document.addEventListener('click', startMusic, { once: true });
+  window.addEventListener('load', startMusic);
 
-  // Toggle mute/unmute
   btn.addEventListener('click', async () => {
     if (audio.muted) {
       audio.muted = false;
       try {
         await audio.play();
       } catch (err) {
-        console.log("Playback error:", err);
+        console.log('Playback needs interaction:', err);
       }
     } else {
       audio.muted = true;
@@ -73,5 +65,3 @@ const y = new Date().getFullYear();
     localStorage.setItem('musicMuted', audio.muted);
   });
 })();
-
-
