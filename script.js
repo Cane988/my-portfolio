@@ -26,7 +26,7 @@ const y = new Date().getFullYear();
   if (el) el.textContent = y;
 });
 
-// Persistent background music with neon control button
+// === Persistent background music with control ===
 (function () {
   if (window.bgMusicInitialized) return;
   window.bgMusicInitialized = true;
@@ -35,24 +35,32 @@ const y = new Date().getFullYear();
   if (!audio) {
     audio = document.createElement('audio');
     audio.id = 'bg-music';
-    audio.src = 'assets/audio/background.mp3'; 
+    audio.src = 'assets/audio/background.mp3';
     audio.loop = true;
-    audio.volume = 0.1;
+    audio.volume = 0.3;
     document.body.appendChild(audio);
   }
 
-  const btn = document.getElementById('music-toggle'); 
+  const btn = document.getElementById('music-toggle');
   const savedMuted = localStorage.getItem('musicMuted') === 'true';
   audio.muted = savedMuted;
-
   if (btn) btn.textContent = savedMuted ? '🔇' : '🔊';
 
-  const startMusic = () => {
-    audio.play().catch(() => {});
-  };
-  document.addEventListener('click', startMusic, { once: true });
-  window.addEventListener('load', startMusic);
+  // Try autoplay
+  audio.play().catch(() => {
+    // Autoplay blocked → show temporary play button
+    const musicBtn = document.createElement('button');
+    musicBtn.textContent = '🎵 Play Music';
+    musicBtn.classList.add('music-btn');
+    document.body.appendChild(musicBtn);
 
+    musicBtn.addEventListener('click', () => {
+      audio.play();
+      musicBtn.remove();
+    });
+  });
+
+  // Toggle mute/unmute
   if (btn) {
     btn.addEventListener('click', async () => {
       if (audio.muted) {
@@ -70,4 +78,3 @@ const y = new Date().getFullYear();
     });
   }
 })();
-
