@@ -35,14 +35,17 @@ const y = new Date().getFullYear();
   if (!audio) {
     audio = document.createElement('audio');
     audio.id = 'bg-music';
-    audio.src = 'assets/music.mp3';
+    audio.src = 'assets/audio/background.mp3'; 
     audio.loop = true;
     audio.volume = 0.1;
     document.body.appendChild(audio);
   }
 
+  const btn = document.getElementById('music-toggle'); 
   const savedMuted = localStorage.getItem('musicMuted') === 'true';
   audio.muted = savedMuted;
+
+  if (btn) btn.textContent = savedMuted ? '🔇' : '🔊';
 
   const startMusic = () => {
     audio.play().catch(() => {});
@@ -50,19 +53,21 @@ const y = new Date().getFullYear();
   document.addEventListener('click', startMusic, { once: true });
   window.addEventListener('load', startMusic);
 
-  const btn.addEventListener('click', async () => {
-    if (audio.muted) {
-      audio.muted = false;
-      try {
-        await audio.play();
-      } catch (err) {
-        console.log('Playback needs interaction:', err);
+  if (btn) {
+    btn.addEventListener('click', async () => {
+      if (audio.muted) {
+        audio.muted = false;
+        try {
+          await audio.play();
+        } catch (err) {
+          console.log('Playback needs interaction:', err);
+        }
+      } else {
+        audio.muted = true;
       }
-    } else {
-      audio.muted = true;
-    }
-    const btn.textContent = audio.muted ? '🔇' : '🔊';
-    localStorage.setItem('musicMuted', audio.muted);
-  });
+      btn.textContent = audio.muted ? '🔇' : '🔊';
+      localStorage.setItem('musicMuted', audio.muted);
+    });
+  }
 })();
 
