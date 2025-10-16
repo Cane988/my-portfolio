@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>About — Carla Mae Cardano</title>
+  <link rel="stylesheet" href="style-dark.css" />
+  <style>
+    /* ---------- Page Layout ---------- */
+    .two-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .about-photo {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 3px solid #00ffc3;
+      box-shadow: 0 0 25px rgba(0, 255, 195, 0.6);
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 255, 195, 0.8);
+    }
+
+    .about-photo .small {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .about-text {
+      flex: 1.2;
+      min-width: 320px;
+      max-width: 600px;
+      text-align: justify;
+    }
+
+    .about-text h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* --- Typing Animation (shorter + centered) --- */
+    /* --- Typing Animation (accurate + pause) --- */
+.typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ffc3;
+  background: linear-gradient(90deg, #00ffc3, #00b3ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px #00ffc3, 0 0 25px #00b3ff;
+  animation: typing 4s steps(8, end) infinite,
+             blink 0.8s infinite,
+             glowText 3s ease-in-out infinite alternate;
+}
+
+@keyframes typing {
+  0%   { width: 0ch; }
+  40%  { width: 8ch; }   /* stops exactly at "About Me" (8 characters) */
+  60%  { width: 8ch; }   /* pause */
+  100% { width: 0ch; }   /* erase */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 10px #00ffc3, 0 0 20px #00b3ff; }
+  to   { text-shadow: 0 0 20px #00b3ff, 0 0 40px #00ffc3; }
+}
+
+
+    .about-text p {
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .about-text li {
+      color: #aaa;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-text strong {
+      color: #00ffc3;
+    }
+
+    /* --- Volume Button --- */
+    #volume-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      padding: 10px 12px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    #volume-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* --- Scroll + Structure --- */
+    html, body {
+      height: auto;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    main.container {
+      overflow-y: auto;
+      max-height: none;
+    }
+
+    @media (max-width: 768px) {
+      .two-col {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-text {
+        max-width: 100%;
+        text-align: justify;
+      }
+      .about-text h2 {
+        text-align: center;
+      }
+    }
+    /* --- Back to Intro Button --- */
+.back-intro-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 255, 195, 0.15);
+  color: #00ffc3;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: 2px solid #00ffc3;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.back-intro-btn:hover {
+  background: #00ffc3;
+  color: #020305;
+  box-shadow: 0 0 20px #00ffc3;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="tech-grid"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a class="logo" href="home.html">Carla Mae Cardano</a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main fade-in">
+    <section class="about-section">
+      <div class="two-col">
+        <!-- IMAGE ON LEFT -->
+        <aside class="about-photo">
+          <img src="assets/profile.jpg" alt="Carla Mae Cardano" class="profile-img" />
+          <p class="small muted">3rd Year Computer Science Student at TUP - Manila</p>
+        </aside>
+
+        <!-- TEXT ON RIGHT -->
+        <div class="about-text">
+          <h2><span class="typing">About Me</span></h2>
+          <p>
+            I’m a 3rd Year Computer Science student at the Technological University of the Philippines - Manila.
+            While I’m still learning to appreciate the technical side of my course, I’m steadily building my skills and confidence.
+            I’m currently exploring web development and UI/UX design, aiming to understand how good design and functional systems work together.
+          </p>
+          <ul>
+            <li><strong>Degree:</strong> Bachelor of Science in Computer Science — in progress</li>
+            <li><strong>Current Focus:</strong> Web Development and UI/UX Design</li>
+            <li><strong>Languages:</strong> HTML, CSS, JavaScript, Python, C, C++</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year-2"></span> Carla Mae Cardano — All rights reserved.</small>
+    </div>
+  </footer>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="volume-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const year2 = document.getElementById('year-2');
+      if (year2) year2.textContent = new Date().getFullYear();
+
+      const music = document.getElementById('bg-music');
+      const volumeBtn = document.getElementById('volume-btn');
+      music.volume = 0.1;
+
+      const isMuted = localStorage.getItem('musicMuted') === 'true';
+      music.muted = isMuted;
+      volumeBtn.textContent = isMuted ? '🔇' : '🔊';
+
+      volumeBtn.addEventListener('click', () => {
+        music.muted = !music.muted;
+        volumeBtn.textContent = music.muted ? '🔇' : '🔊';
+        localStorage.setItem('musicMuted', music.muted);
+      });
+    });
+  </script>
+</body>
+</html>

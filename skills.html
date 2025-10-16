@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skills — Carla Mae Cardano</title>
+  <link rel="stylesheet" href="style-dark.css" />
+<style>
+  /* ---------- Skills Layout ---------- */
+  .skills-section {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  gap: 30px;
+  margin-top: 40px;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* make sure cards fill each cell evenly */
+.skill-card {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  text-align: left;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 8px rgba(0, 255, 200, 0.05);
+}
+
+/* on smaller screens, stack them into one column */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  .skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+    border-color: rgba(0, 255, 200, 0.4);
+  }
+
+  .skill-card h3 {
+    color: #00ffc8;
+    margin-bottom: 10px;
+  }
+
+  .skill-card p {
+    color: #ccc;
+    line-height: 1.6;
+  }
+  
+  /* ---------- Neon Pulse for Skill Cards ---------- */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 8px rgba(0, 255, 200, 0.1),
+                0 0 16px rgba(0, 255, 200, 0.05);
+    border-color: rgba(0, 255, 200, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(0, 255, 200, 0.25),
+                0 0 32px rgba(0, 179, 255, 0.2);
+    border-color: rgba(0, 255, 200, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(0, 255, 200, 0.1),
+                0 0 16px rgba(0, 255, 200, 0.05);
+    border-color: rgba(0, 255, 200, 0.1);
+  }
+}
+
+.skill-card {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  text-align: left;
+  backdrop-filter: blur(6px);
+  animation: neonPulse 5s ease-in-out infinite;
+}
+
+/* Keep hover stronger for interactivity */
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 200, 0.4),
+              0 0 40px rgba(0, 179, 255, 0.3);
+  border-color: rgba(0, 255, 200, 0.5);
+}
+
+  /* ---------- Animated Skills Title ---------- */
+.typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ffc3;
+  background: linear-gradient(90deg, #00ffc3, #00b3ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px #00ffc3, 0 0 25px #00b3ff;
+  animation: typing 4s steps(6, end) infinite,
+             blink 0.8s infinite,
+             glowText 3s ease-in-out infinite alternate;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+@keyframes typing {
+  0%   { width: 0ch; }
+  40%  { width: 6ch; }  /* exactly matches "Skills" (6 characters) */
+  60%  { width: 6ch; }  /* pause */
+  100% { width: 0ch; }  /* erase */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 10px #00ffc3, 0 0 20px #00b3ff; }
+  to   { text-shadow: 0 0 20px #00b3ff, 0 0 40px #00ffc3; }
+}
+
+  /* ---------- Volume Button ---------- */
+  #volume-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 10px 12px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease;
+  }
+
+  #volume-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+
+  /* ---------- Scroll Fix ---------- */
+  html, body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  main.container {
+    overflow-y: auto;
+    max-height: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* --- Back to Intro Button --- */
+.back-intro-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 255, 195, 0.15);
+  color: #00ffc3;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: 2px solid #00ffc3;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.back-intro-btn:hover {
+  background: #00ffc3;
+  color: #020305;
+  box-shadow: 0 0 20px #00ffc3;
+}
+
+</style>
+</head>
+<body>
+  <div class="tech-grid"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a class="logo" href="home.html">Carla Mae Cardano</a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html" class="active">Skills</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main fade-in">
+    <section class="skills-section">
+      <h2 class="typing">Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Web Development</h3>
+          <p>Basic understanding of HTML, CSS, and JavaScript. Can create simple, responsive layouts and structure web pages.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Programming Languages</h3>
+          <p>Familiar with HTML, CSS, JavaScript, Python, C, and C++. Learning logic building and syntax fundamentals.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Tools</h3>
+          <p>VS Code, GitHub, CodeBlocks, and Figma for coding, collaboration, and design mockups.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Database</h3>
+          <p>PostgreSQL — basic knowledge of SQL commands and CRUD operations.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year-3"></span> Carla Mae Cardano</small>
+    </div>
+  </footer>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="volume-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bg-music');
+      const volumeBtn = document.getElementById('volume-btn');
+      music.volume = 0.1;
+
+      const isMuted = localStorage.getItem('musicMuted') === 'true';
+      music.muted = isMuted;
+      volumeBtn.textContent = isMuted ? '🔇' : '🔊';
+
+      volumeBtn.addEventListener('click', () => {
+        music.muted = !music.muted;
+        volumeBtn.textContent = music.muted ? '🔇' : '🔊';
+        localStorage.setItem('musicMuted', music.muted);
+      });
+    });
+  </script>
+</body>
+</html>

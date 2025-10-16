@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Carla Mae Cardano</title>
+  <link rel="stylesheet" href="style-dark.css" />
+
+<style>
+  /* --- Project Layout --- */
+  h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    margin-top: 60px;
+    letter-spacing: 1px;
+  }
+
+  /* ---------- Typing + Neon Effect for Projects ---------- */
+  .typing {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #00ffc3;
+    width: 0;
+    background: linear-gradient(90deg, #00ffc3, #00b3ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px #00ffc3, 0 0 30px #00b3ff;
+    animation: typing 4s steps(8, end) infinite,
+               blink 0.8s infinite,
+               glowText 3s ease-in-out infinite alternate;
+  }
+
+  /* makes it type "Projects" exactly (8 letters) */
+  @keyframes typing {
+    0% { width: 0; }
+    40% { width: 8ch; } /* stops exactly after "Projects" */
+    60% { width: 8ch; } /* pause */
+    100% { width: 0; }  /* erase */
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  @keyframes glowText {
+    from { text-shadow: 0 0 10px #00ffc3, 0 0 20px #00b3ff; }
+    to { text-shadow: 0 0 20px #00b3ff, 0 0 40px #00ffc3; }
+  }
+
+  /* --- Projects Grid --- */
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .project {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 200, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+    position: relative;
+    animation: pulse 6s infinite ease-in-out; /* soft neon pulse */
+  }
+
+  .project:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(0, 255, 200, 0.4);
+    border-color: rgba(0, 255, 200, 0.4);
+  }
+
+  .project h3 {
+    color: #00ffc8;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .project p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    text-align: justify;
+  }
+
+  .project .muted {
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+
+  /* Ongoing Badge */
+  .badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 255, 200, 0.15);
+    color: #00ffc8;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border: 1px solid rgba(0, 255, 200, 0.3);
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  /* Fade animation */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Neon pulse animation for cards */
+  @keyframes pulse {
+    0% { box-shadow: 0 0 12px rgba(0, 255, 200, 0.1); }
+    50% { box-shadow: 0 0 25px rgba(0, 255, 200, 0.4); }
+    100% { box-shadow: 0 0 12px rgba(0, 255, 200, 0.1); }
+  }
+
+  #volume-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 10px 12px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease;
+  }
+
+  #volume-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* --- Back to Intro Button --- */
+.back-intro-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 255, 195, 0.15);
+  color: #00ffc3;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: 2px solid #00ffc3;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.back-intro-btn:hover {
+  background: #00ffc3;
+  color: #020305;
+  box-shadow: 0 0 20px #00ffc3;
+}
+
+</style>
+
+</head>
+
+<body>
+  <div class="tech-grid"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a class="logo" href="home.html">Carla Mae Cardano</a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+ 
+  <main class="container main fade-in">
+  <h2><span class="typing">Projects</span></h2>
+
+  <div class="project-list">
+    <article class="project">
+      <span class="badge">Ongoing</span>
+      <h3>Real-Time Seat Counting and Monitoring System</h3>
+      <p>A computer vision–based system that detects occupied and vacant chairs using live video. It helps monitor seat availability in real time for better library space management.</p>
+      <p class="muted small">Technologies: HTML, CSS, JavaScript</p>
+    </article>
+
+    <article class="project">
+      <span class="badge">Ongoing</span>
+      <h3>BRIGHT: Budget Record Integrity using Generalized Hash-based Transparency</h3>
+      <p>A blockchain-inspired platform ensuring transparency in local budget management. Records transactions securely and provides document-supported public dashboards.</p>
+      <p class="muted small">Technologies: SQLite, HTML, CSS, JavaScript</p>
+    </article>
+
+    <article class="project">
+      <span class="badge">Ongoing</span>
+      <h3>eGOB: Community Issue Reporting and Tracking System</h3>
+      <p>A platform where citizens can report community problems with photos and track real-time government responses, promoting accountability and transparency.</p>
+      <p class="muted small">Technologies: HTML, CSS, JavaScript</p>
+    </article>
+
+    <article class="project">
+      <span class="badge">Ongoing</span>
+      <h3>FoodLink</h3>
+      <p>A web-based food-sharing platform with login, signup, and leaderboard features integrated via Firebase.</p>
+      <p class="muted small">Technologies: HTML, CSS, JavaScript, Firebase</p>
+    </article>
+
+    <article class="project">
+      <h3>MoodTracker Web App (Prototype)</h3>
+      <p>Tracks users’ daily moods and visualizes emotional trends through interactive charts to promote self-awareness.</p>
+      <p class="muted small">Technologies: HTML, CSS, JavaScript, Chart.js, Firebase</p>
+    </article>
+
+    <article class="project">
+      <h3>Simple Unit Converter</h3>
+      <p>Converts units like length, weight, and temperature instantly on web and mobile with a simple, intuitive design.</p>
+      <p class="muted small">Web: HTML, CSS, JavaScript | Mobile: MIT App Inventor</p>
+    </article>
+
+    <article class="project">
+      <h3>Crops Tracker (Prototype)</h3>
+      <p>A UI/UX design prototype to help farmers track crop growth, health, and maintenance schedules.</p>
+      <p class="muted small">Tools: Figma, Canva</p>
+    </article>
+
+    <article class="project">
+      <h3>ATM Machine Simulation (Group Project)</h3>
+      <p>A simulation project mimicking ATM authentication and transactions using a USB as an ATM card.</p>
+      <p class="muted small">Technologies: C/C++ (Console Application)</p>
+    </article>
+  </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> Carla Mae Cardano — All rights reserved.</small>
+    </div>
+  </footer>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="volume-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bg-music');
+      const volumeBtn = document.getElementById('volume-btn');
+      music.volume = 0.1;
+
+      const isMuted = localStorage.getItem('musicMuted') === 'true';
+      music.muted = isMuted;
+      volumeBtn.textContent = isMuted ? '🔇' : '🔊';
+
+      volumeBtn.addEventListener('click', () => {
+        music.muted = !music.muted;
+        volumeBtn.textContent = music.muted ? '🔇' : '🔊';
+        localStorage.setItem('musicMuted', music.muted);
+      });
+
+      // Fade-in on scroll
+      const projects = document.querySelectorAll('.project');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.2 });
+
+      projects.forEach(proj => {
+        proj.classList.add('fade-in-up');
+        observer.observe(proj);
+      });
+    });
+  </script>
+</body>
+</html>

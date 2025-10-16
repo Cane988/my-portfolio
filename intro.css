@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Neon Background --- */
+.neon-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  animation: zoom 14s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+
+.line {
+  position: absolute;
+  height: 6px;
+  border-radius: 10px;
+  opacity: 0.8;
+  box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  animation: move 6s linear infinite, flicker 3s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+  0% { transform: translate(-10vw, -10vh); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(110vw, 110vh); opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.8; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.5); }
+}
+
+/* --- Particle Layer --- */
+#particleCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* --- Welcome Container --- */
+.welcome-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  animation: fadeIn 2s ease;
+  padding: 0 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Glitch Text --- */
+#glitch-text {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  color: #00ffc3;
+  text-shadow: 0 0 20px #00ffc3, 0 0 40px #00b3ff;
+  margin-bottom: 30px;
+  animation: glitch 2.5s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+  20% { text-shadow: -2px 2px #ff00ff, 2px -2px #00ffff; }
+  40% { text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff; }
+  60% { text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff; }
+  80% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+  100% { text-shadow: 0 0 20px #00ffc3, 0 0 40px #00b3ff; }
+}
+
+/* --- Button --- */
+.open-btn {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  background: linear-gradient(90deg, #00ffc3, #00b3ff);
+  color: black;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 0 20px #00ffc3, 0 0 40px #00b3ff;
+  transition: all 0.3s ease;
+}
+
+.open-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #00ffc3, 0 0 60px #00b3ff;
+}
+
+/* --- Mobile & Small Screens --- */
+@media (max-width: 600px) {
+  #glitch-text {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    margin-bottom: 24px;
+  }
+  .open-btn {
+    padding: 10px 26px;
+  }
+}
+

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Carla Mae Cardano</title>
+  <link rel="stylesheet" href="style-dark.css" />
+
+  <style>
+    /* ---------- Contact Page Styling ---------- */
+    main {
+      text-align: center;
+      padding: 60px 20px 100px;
+    }
+
+    /* Typing neon header */
+    h2 {
+      font-size: 2.3rem;
+      margin-bottom: 20px;
+    }
+
+    .typing {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #00ffc3;
+      width: 0;
+      background: linear-gradient(90deg, #00ffc3, #00b3ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px #00ffc3, 0 0 30px #00b3ff;
+      animation: typing 3.5s steps(7, end) infinite,
+                 blink 0.8s infinite,
+                 glowText 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes typing {
+      0% { width: 0; }
+      40% { width: 7ch; } /* stops exactly after "Contact" */
+      60% { width: 7ch; } /* pause */
+      100% { width: 0; }  /* erase */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #00ffc3, 0 0 20px #00b3ff; }
+      to { text-shadow: 0 0 20px #00b3ff, 0 0 40px #00ffc3; }
+    }
+
+    p {
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* Contact cards */
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 200, 0.15);
+      border-radius: 14px;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.08);
+      backdrop-filter: blur(6px);
+      padding: 25px 20px;
+      width: 260px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.4);
+      border-color: rgba(0, 255, 200, 0.4);
+    }
+
+    .contact-card h4 {
+      color: #00ffc3;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ffc3;
+    }
+
+    .contact-card a {
+      color: #00b3ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      color: #00ffc3;
+    }
+
+    .contact-card svg {
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 8px rgba(0, 255, 200, 0.4));
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .contact-card:hover svg {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 15px rgba(0, 255, 200, 0.6));
+    }
+
+    /* Volume button */
+    #volume-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      padding: 10px 12px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    #volume-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .contact-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+    }
+    /* --- Back to Intro Button --- */
+.back-intro-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 255, 195, 0.15);
+  color: #00ffc3;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: 2px solid #00ffc3;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.back-intro-btn:hover {
+  background: #00ffc3;
+  color: #020305;
+  box-shadow: 0 0 20px #00ffc3;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="tech-grid"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a class="logo" href="home.html">Carla Mae Cardano</a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+ 
+  <main class="container main fade-in">
+    <h2><span class="typing">Contact</span></h2>
+    <p>If you want to reach me, you can email me at <strong>cardano.carlamae@gmail.com</strong> or visit my social media profiles below.</p>
+
+    <div class="contact-cards">
+      <div class="card contact-card">
+        <h4>Facebook</h4>
+        <a href="https://web.facebook.com/carlacardano988" target="_blank" aria-label="Facebook">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.675 0h-21.35C0.595 0 0 0.595 0 1.325v21.351C0 23.405 0.595 24 1.325 24H12.82v-9.294H9.692V11.08h3.128V8.414c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463 0.099 2.795 0.143v3.24l-1.918 0.001c-1.504 0-1.796 0.716-1.796 1.765v2.314h3.587l-0.467 3.626h-3.12V24h6.116c0.73 0 1.325-0.595 1.325-1.324V1.325C24 0.595 23.405 0 22.675 0z"/>
+          </svg>
+        </a>
+        <p><a href="https://web.facebook.com/carlacardano988" target="_blank">facebook.com/carlacardano988</a></p>
+      </div>
+
+      <div class="card contact-card">
+        <h4>LinkedIn</h4>
+        <a href="https://www.linkedin.com/in/cardano988/" target="_blank" aria-label="LinkedIn">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452H16.89v-5.569c0-1.328-.024-3.036-1.85-3.036-1.853 0-2.136 1.445-2.136 2.939v5.666H9.35V9h3.41v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.372 4.267 5.455v6.286zM5.337 7.433a1.985 1.985 0 110-3.97 1.985 1.985 0 010 3.97zM6.94 20.452H3.73V9h3.21v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.225.792 24 1.771 24h20.451C23.2 24 24 23.225 24 22.271V1.728C24 .774 23.2 0 22.225 0z"/>
+          </svg>
+        </a>
+        <p><a href="https://www.linkedin.com/in/cardano988/" target="_blank">linkedin.com/in/cardano988</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year-6"></span> Carla Mae Cardano</small>
+    </div>
+  </footer>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="volume-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bg-music');
+      const volumeBtn = document.getElementById('volume-btn');
+      music.volume = 0.1;
+
+      const isMuted = localStorage.getItem('musicMuted') === 'true';
+      music.muted = isMuted;
+      volumeBtn.textContent = isMuted ? '🔇' : '🔊';
+
+      volumeBtn.addEventListener('click', () => {
+        music.muted = !music.muted;
+        volumeBtn.textContent = music.muted ? '🔇' : '🔊';
+        localStorage.setItem('musicMuted', music.muted);
+      });
+    });
+  </script>
+</body>
+</html>

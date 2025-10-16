@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Certificates — Carla Mae Cardano</title>
+  <link rel="stylesheet" href="style-dark.css" />
+
+  <style>
+    /* ---------- Certificates Page ---------- */
+    .main {
+      padding-top: 60px;
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+      padding: 0 10px;
+    }
+
+    .cert {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 200, 0.15);
+      border-radius: 14px;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.08);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .cert:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.4);
+      border-color: rgba(0, 255, 200, 0.4);
+    }
+
+    .cert img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .cert:hover img {
+      transform: scale(1.03);
+    }
+
+    .cert p {
+      padding: 14px 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* Prevent zoomed-in overflow */
+    img {
+      object-fit: contain;
+    }
+
+    /* Fix scroll issue */
+    html, body {
+      height: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 600px) {
+      .cert p {
+        font-size: 0.9rem;
+      }
+    }
+
+/* ---------- Typing + Neon Effect for Certificates ---------- */
+.typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ffc3;
+  width: 0;
+  background: linear-gradient(90deg, #00ffc3, #00b3ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px #00ffc3, 0 0 30px #00b3ff;
+  animation: typing 4s steps(12, end) infinite, blink 0.8s infinite, glowText 3s ease-in-out infinite alternate;
+}
+
+/* makes it type "Certificates" exactly (12 characters) */
+@keyframes typing {
+  0% { width: 0; }
+  40% { width: 12ch; } /* stops exactly after "Certificates" */
+  60% { width: 12ch; } /* short pause */
+  100% { width: 0; }   /* erase */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 10px #00ffc3, 0 0 20px #00b3ff; }
+  to { text-shadow: 0 0 20px #00b3ff, 0 0 40px #00ffc3; }
+}
+
+/* ---------- Neon Pulse Animation for Certificates ---------- */
+@keyframes pulse {
+  0% { box-shadow: 0 0 12px rgba(0, 255, 200, 0.1); }
+  50% { box-shadow: 0 0 25px rgba(0, 255, 200, 0.4); }
+  100% { box-shadow: 0 0 12px rgba(0, 255, 200, 0.1); }
+}
+
+.cert {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 200, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  animation: pulse 6s infinite ease-in-out; /* 💫 soft glowing loop */
+}
+
+/* --- Back to Intro Button --- */
+.back-intro-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 255, 195, 0.15);
+  color: #00ffc3;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: 2px solid #00ffc3;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.back-intro-btn:hover {
+  background: #00ffc3;
+  color: #020305;
+  box-shadow: 0 0 20px #00ffc3;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="tech-grid"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="intro.html" class="back-intro-btn" title="Back to Intro">⏮ Intro</a>
+      <a class="logo" href="home.html">Carla Mae Cardano</a>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="certificates.html" class="active">Certificates</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main fade-in">
+    <h2><span class="typing">Certificates</span></h2>
+
+    <div class="cert-grid">
+      <div class="cert">
+        <a href="assets/G-TechSummit.jpg" target="_blank">
+          <img src="assets/G-TechSummit.jpg" alt="G-Tech Summit 2025" />
+        </a>
+        <p>Certificate of Participation — G-Tech Summit 2025</p>
+      </div>
+
+      <div class="cert">
+        <a href="assets/GDG Sales Associate 2024-2025.png" target="_blank">
+          <img src="assets/GDG Sales Associate 2024-2025.png" alt="GDG Sales Associate" />
+        </a>
+        <p>Certificate of Recognition — GDG Sales Associate 2024-2025</p>
+      </div>
+
+      <div class="cert">
+        <a href="assets/Infosession 4.0 Participation.jpg" target="_blank">
+          <img src="assets/Infosession 4.0 Participation.jpg" alt="Infosession 4.0" />
+        </a>
+        <p>Certificate of Participation — Infosession 2025</p>
+      </div>
+
+      <div class="cert">
+        <a href="assets/Sonder 2025 International Community Building.jpg" target="_blank">
+          <img src="assets/Sonder 2025 International Community Building.jpg" alt="Sonder 2025 International Community Building" />
+        </a>
+        <p>Certificate of Participation — Sonder 2025 International Community Building</p>
+      </div>
+
+      <div class="cert">
+        <a href="assets/Sonder 2025_ Designing a Future that Lasts.png" target="_blank">
+          <img src="assets/Sonder 2025_ Designing a Future that Lasts.png" alt="Sonder 2025 Google Dev World Tour" />
+        </a>
+        <p>Certificate of Participation — Sonder 2025 Google Dev World Tour (Indonesia)</p>
+      </div>
+
+      <div class="cert">
+        <a href="assets/Introduction to Cybersecurity.jpg" target="_blank">
+          <img src="assets/Introduction to Cybersecurity.jpg" alt="Introduction to Cybersecurity" />
+        </a>
+        <p>Certificate of Completion — Introduction to Cybersecurity Course</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year-4"></span> Carla Mae Cardano</small>
+    </div>
+  </footer>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="volume-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bg-music');
+      const volumeBtn = document.getElementById('volume-btn');
+      music.volume = 0.1;
+
+      const isMuted = localStorage.getItem('musicMuted') === 'true';
+      music.muted = isMuted;
+      volumeBtn.textContent = isMuted ? '🔇' : '🔊';
+
+      volumeBtn.addEventListener('click', () => {
+        music.muted = !music.muted;
+        volumeBtn.textContent = music.muted ? '🔇' : '🔊';
+        localStorage.setItem('musicMuted', music.muted);
+      });
+    });
+  </script>
+</body>
+</html>
