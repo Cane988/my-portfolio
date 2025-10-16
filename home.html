@@ -220,27 +220,11 @@
     <source src="assets/audio/background.mp3" type="audio/mpeg">
   </audio>
 
+  <button id="music-toggle" aria-label="Toggle sound" title="Toggle sound">🔊</button>
   <button id="volume-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
 
   <script src="script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const year = document.getElementById('year');
-      if (year) year.textContent = new Date().getFullYear();
-
-      const music = document.getElementById('bg-music');
-      const volumeBtn = document.getElementById('volume-btn');
-      music.volume = 0.1;
-      const isMuted = localStorage.getItem('musicMuted') === 'true';
-      music.muted = isMuted;
-      volumeBtn.textContent = isMuted ? '🔇' : '🔊';
-      volumeBtn.addEventListener('click', () => {
-        music.muted = !music.muted;
-        volumeBtn.textContent = music.muted ? '🔇' : '🔊';
-        localStorage.setItem('musicMuted', music.muted);
-      });
-    });
-  </script>
 </body>
 </html>
+
 
