@@ -1,32 +1,3 @@
-// Mobile navigation toggle
-const toggle = document.getElementById('mobile-nav-toggle');
-const nav = document.getElementById('site-nav');
-
-if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    toggle.classList.toggle('active'); // animate hamburger
-  });
-}
-
-// Close nav on link click (mobile)
-document.querySelectorAll('.nav a').forEach(a => {
-  a.addEventListener('click', () => {
-    if (nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      toggle.classList.remove('active');
-    }
-  });
-});
-
-// Update copyright year
-const y = new Date().getFullYear();
-['year', 'year-2', 'year-3', 'year-4', 'year-5', 'year-6'].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.textContent = y;
-});
-
-// === Persistent background music with control ===
 (function () {
   if (window.bgMusicInitialized) return;
   window.bgMusicInitialized = true;
@@ -41,14 +12,15 @@ const y = new Date().getFullYear();
     document.body.appendChild(audio);
   }
 
-  const btn = document.getElementById('music-toggle');
+  const btn = document.getElementById('music-toggle'); 
   const savedMuted = localStorage.getItem('musicMuted') === 'true';
   audio.muted = savedMuted;
+
   if (btn) btn.textContent = savedMuted ? '🔇' : '🔊';
 
   // Try autoplay
   audio.play().catch(() => {
-    // Autoplay blocked → show temporary play button
+    // If blocked, show a play button
     const musicBtn = document.createElement('button');
     musicBtn.textContent = '🎵 Play Music';
     musicBtn.classList.add('music-btn');
@@ -60,7 +32,6 @@ const y = new Date().getFullYear();
     });
   });
 
-  // Toggle mute/unmute
   if (btn) {
     btn.addEventListener('click', async () => {
       if (audio.muted) {
