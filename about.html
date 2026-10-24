@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>About — Carla Mae Cardano</title>
+  <title>About - Carla Mae Cardano</title>
   <link rel="stylesheet" href="style-dark.css" />
   <style>
     /* ---------- Page Layout ---------- */
@@ -59,39 +59,37 @@
       text-align: center;
     }
 
-    /* --- Typing Animation (shorter + centered) --- */
     /* --- Typing Animation (accurate + pause) --- */
-.typing {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid #00ffc3;
-  background: linear-gradient(90deg, #00ffc3, #00b3ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px #00ffc3, 0 0 25px #00b3ff;
-  animation: typing 4s steps(8, end) infinite,
-             blink 0.8s infinite,
-             glowText 3s ease-in-out infinite alternate;
-}
+    .typing {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #00ffc3;
+      background: linear-gradient(90deg, #00ffc3, #00b3ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px #00ffc3, 0 0 25px #00b3ff;
+      animation: typing 4s steps(8, end) infinite,
+                 blink 0.8s infinite,
+                 glowText 3s ease-in-out infinite alternate;
+    }
 
-@keyframes typing {
-  0%   { width: 0ch; }
-  40%  { width: 8ch; }   /* stops exactly at "About Me" (8 characters) */
-  60%  { width: 8ch; }   /* pause */
-  100% { width: 0ch; }   /* erase */
-}
+    @keyframes typing {
+      0%   { width: 0ch; }
+      40%  { width: 8ch; }   /* stops exactly at "About Me" (8 characters) */
+      60%  { width: 8ch; }   /* pause */
+      100% { width: 0ch; }   /* erase */
+    }
 
-@keyframes blink {
-  50% { border-color: transparent; }
-}
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
 
-@keyframes glowText {
-  from { text-shadow: 0 0 10px #00ffc3, 0 0 20px #00b3ff; }
-  to   { text-shadow: 0 0 20px #00b3ff, 0 0 40px #00ffc3; }
-}
-
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #00ffc3, 0 0 20px #00b3ff; }
+      to   { text-shadow: 0 0 20px #00b3ff, 0 0 40px #00ffc3; }
+    }
 
     .about-text p {
       color: #ccc;
@@ -163,30 +161,29 @@
       }
     }
     /* --- Back to Intro Button --- */
-.back-intro-btn {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(0, 255, 195, 0.15);
-  color: #00ffc3;
-  font-weight: bold;
-  padding: 8px 14px;
-  border: 2px solid #00ffc3;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
-  z-index: 2000;
-  transition: all 0.3s ease;
-}
+    .back-intro-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(0, 255, 195, 0.15);
+      color: #00ffc3;
+      font-weight: bold;
+      padding: 8px 14px;
+      border: 2px solid #00ffc3;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+      z-index: 2000;
+      transition: all 0.3s ease;
+    }
 
-.back-intro-btn:hover {
-  background: #00ffc3;
-  color: #020305;
-  box-shadow: 0 0 20px #00ffc3;
-}
-
+    .back-intro-btn:hover {
+      background: #00ffc3;
+      color: #020305;
+      box-shadow: 0 0 20px #00ffc3;
+    }
   </style>
 </head>
 <body>
@@ -217,20 +214,19 @@
         <!-- IMAGE ON LEFT -->
         <aside class="about-photo">
           <img src="assets/profile.jpg" alt="Carla Mae Cardano" class="profile-img" />
-          <p class="small muted">3rd Year Computer Science Student at TUP - Manila</p>
+          <p class="small muted">Computer Science Student at TUP Manila</p>
         </aside>
 
         <!-- TEXT ON RIGHT -->
         <div class="about-text">
           <h2><span class="typing">About Me</span></h2>
           <p>
-            I’m a 3rd Year Computer Science student at the Technological University of the Philippines - Manila.
-            While I’m still learning to appreciate the technical side of my course, I’m steadily building my skills and confidence.
-            I’m currently exploring web development and UI/UX design, aiming to understand how good design and functional systems work together.
+            I am a Computer Science student at the Technological University of the Philippines Manila. I have a strong passion for Quality Assurance and software testing, with a sharp eye for detail. My goal is to thoroughly evaluate systems, catch edge cases, and ensure every application delivers a seamless, bug-free user experience. Beyond academics, I am actively involved in tech communities, serving in leadership roles for the Google Developer Groups on Campus (GDGC).
           </p>
           <ul>
-            <li><strong>Degree:</strong> Bachelor of Science in Computer Science — in progress</li>
-            <li><strong>Current Focus:</strong> Web Development and UI/UX Design</li>
+            <li><strong>Degree:</strong> Bachelor of Science in Computer Science</li>
+            <li><strong>Focus:</strong> Quality Assurance and Software Testing</li>
+            <li><strong>Affiliations:</strong> GDGC TUP Manila, TUP Manila Compass</li>
             <li><strong>Languages:</strong> HTML, CSS, JavaScript, Python, C, C++</li>
           </ul>
         </div>
@@ -240,7 +236,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <small>© <span id="year-2"></span> Carla Mae Cardano — All rights reserved.</small>
+      <small>© <span id="year-2"></span> Carla Mae Cardano - All rights reserved.</small>
     </div>
   </footer>
 
@@ -273,4 +269,3 @@
   </script>
 </body>
 </html>
-
